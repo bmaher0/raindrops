@@ -1,2 +1,1 @@
-boolean shops;
-int money;
+
