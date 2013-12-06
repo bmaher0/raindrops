@@ -1,4 +1,4 @@
-class Purchase {
+/*class Purchase {
   boolean bought;
   PVector loc;
   PVector size;
@@ -22,5 +22,5 @@ class Purchase {
       text(item, loc.x+size.x/2, loc.y+size.y*3/4);
     }
   }
-}
+}*/
 

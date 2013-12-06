@@ -7,11 +7,12 @@ class Raindrops {
   Raindrops(int dia) {
     d = dia;
     loc = new PVector(random(width), 0);
-    vel = new PVector(random(.5), random(5));
-    acc = new PVector(random(.1), random(5));
+    vel = new PVector(1, 50);
+    acc = new PVector(.1, 5);
   }
 
   void display() {
+    colorMode(RGB, 255, 255, 255);
     fill(0, 0, 255);
     ellipse(loc.x, loc.y, d, d);
   }
