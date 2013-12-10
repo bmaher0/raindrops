@@ -10,6 +10,9 @@ class Catcher {
     loc.x = mouseX;
   }
   void display() {
+    noStroke();
+    colorMode(HSB, width, 100, 100);
+    fill(loc.x, 100, 100);
     ellipse(loc.x, loc.y, d, d);
   }
 }
