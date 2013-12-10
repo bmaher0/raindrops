@@ -2,11 +2,12 @@ class Catcher {
   PVector loc;
   int d;
 
-  Catcher(int dia) {
-    d = dia;
-    loc = new PVector(mouseX, height-100);
+  Catcher() {
+    d = catcherD;
+    loc = new PVector(mouseX, height-50-catcherD/2);
   }
   void update() {
+    d = catcherD;
     loc.x = mouseX;
   }
   void display() {
