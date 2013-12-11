@@ -8,7 +8,7 @@ class Timer {
   Timer() {
     oldTime = 0;
   }
-
+//timer class, returns check as true every (timeRate) milliseconds
   void update(int Rate) {
     timeRate = Rate;
     currentTime = millis();

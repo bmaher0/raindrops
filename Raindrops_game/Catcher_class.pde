@@ -6,6 +6,7 @@ class Catcher {
     d = catcherD;
     loc = new PVector(mouseX, height-50-catcherD/2);
   }
+  //sets catcher position
   void update() {
     d = catcherD;
     loc.x = mouseX;

@@ -1,3 +1,4 @@
+//the game itself
 void game() {
   if (gameState == 1) {  
     background(0);

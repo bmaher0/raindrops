@@ -17,8 +17,7 @@ void displayInfo() {
   textSize(10);
   text("Score:"+score, width/2, height-10);
 }
-
-
+//menu for pauses
 void pauseMenu() {
   rectMode(CORNER);
   textAlign(CENTER);
@@ -61,21 +60,23 @@ void pauseMenu() {
 void shop() {
   colorMode(HSB, 360, 100, 100);
   textSize(20);
+  //return to menu button
   fill(240, 100, 100);
   strokeWeight(5);
   stroke(360, 100, 100);
   rect(width/4, height*5/9, width/2, height/9);
   fill(360, 100, 100);
   text("Back to menu", width/2, height*11/18);
-  text("SHOP COMING SOON", width/2, height/2);
   if (button(width/4, height*5/9, width/2, height/9)) {
     gameState = 2;
   }
-// upgrades not working, to be fixed  u.display();
+  //coming soon text
+  text("SHOP COMING SOON", width/2, height/2);
+  // upgrades not working, to be fixed  u.display();
 }
 
 void startMenu() {
-  //start rectangle
+  //start button
   fill(255);
   rect(width/4, height/4, width/2, height/2);
   textAlign(CENTER);
@@ -84,6 +85,7 @@ void startMenu() {
   text("START", width/2, height/2);
   stroke(0);
   strokeWeight(1);
+  //button
   if (button(width/4, height/4, width/2, height/2)) {
     gameState = 1;
   }

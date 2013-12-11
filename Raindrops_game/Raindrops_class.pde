@@ -10,14 +10,14 @@ class Raindrops {
     vel = new PVector(random(-.05,.05), random(.5));
     acc = new PVector(0, random(.05));
   }
-
+//creates raindrop ellipse
   void display() {
     noStroke();
     colorMode(RGB, 255, 255, 255);
     fill(0, 0, 255);
     ellipse(loc.x, loc.y, d, d);
   }
-
+//updates PVectors
   void update() {
     vel.add(acc);
     loc.add(vel);

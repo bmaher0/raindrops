@@ -1,3 +1,5 @@
+//if you lose the game, obnoxious message and color appear
+//I lost the game
 void lose() {
   colorMode(HSB, random(360), 100, 100);
   background(random(360), 100, 100);
