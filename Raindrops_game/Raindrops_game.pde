@@ -19,16 +19,12 @@ String[] effects = new String[1];
 
 void setup() {
   size(500, 500);
+  //initialize variables
   initialize();
   //construct raindrops
   rain = new ArrayList<Raindrops>();
-  for (int i = 0; i < 5; i++) {
-    rain.add(new Raindrops());
-  }
-  //construct catcher
-  c = new Catcher();
-  //construct timer
-  t = new Timer();
+  //construct objects
+  constructors();
   //upgrades
   // upgrades not working, to be fixed  u = new Upgrades(width/4, height/9, 100, 0);
   effects[0] = "Increase radius";

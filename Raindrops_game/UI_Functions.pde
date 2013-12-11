@@ -43,18 +43,18 @@ void pauseMenu() {
   if (button(width/4, height/3, width/2, height/9)) {
     gameState = 3;
   }
-  /* reset is buggy, will fix in the future
-   //Reset button
-   fill(240, 100, 100);
-   strokeWeight(5);
-   stroke(360, 100, 100);
-   rect(width/4, height*5/9, width/2, height/9);
-   fill(360, 100, 100);
-   text("Reset game", width/2, height*11/18);
-   if (button(width/4, height*5/9, width/2, height/9)) {
-   gameState = 0;
-   }
-   */
+  /* reset is buggy, will work on later
+  //Reset button
+  fill(240, 100, 100);
+  strokeWeight(5);
+  stroke(360, 100, 100);
+  rect(width/4, height*5/9, width/2, height/9);
+  fill(360, 100, 100);
+  text("Reset game", width/2, height*11/18);
+  if (button(width/4, height*5/9, width/2, height/9)) {
+    reset();
+  }
+  */
 }
 
 void shop() {
