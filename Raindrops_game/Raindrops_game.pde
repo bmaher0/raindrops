@@ -3,9 +3,12 @@ int gameState;
 //game objects/mechanics
 int rate;
 ArrayList<Raindrops> rain;
-// upgrades not working, to be fixed ArrayList<Upgrades> shop;
+// upgrades not working, to be fixed: ArrayList<Upgrades> shop;
 Catcher c;
 Timer t;
+Game g;
+StartMenu s;
+PauseMenu p;
 int catcherD;
 //drop properties
 int minSize;
@@ -35,13 +38,17 @@ void draw() {
   rate = int(5000*exp(-.0005*score));
   //run based on state
   if (gameState == 0) {
-    startMenu();
+    s.display();
+    s.update();
   } 
   if (gameState == 1) {
-    game();
+    g.update();
+    g.display();
   } 
   if (gameState == 2) {
-    pauseMenu();
+    p.resumeButton();
+    p.shopButton();
+    p.resetButton();
   } 
   if (gameState == 3) {
     shop();

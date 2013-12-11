@@ -4,10 +4,16 @@ void constructors() {
   for (int i = 0; i < 5; i++) {
     rain.add(new Raindrops());
   }
-  //construct catcher
+  //construct Catcher
   c = new Catcher();
-  //construct timer
+  //construct Timer
   t = new Timer();
+  //construct Game
+  g = new Game();
+  //construct StartMenu
+  s = new StartMenu();
+  //construct PauseMenu
+  p = new PauseMenu();
 }
 
 //initialize variables
