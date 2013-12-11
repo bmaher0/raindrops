@@ -10,6 +10,7 @@ class Catcher {
     d = catcherD;
     loc.x = mouseX;
   }
+  //display catcher ball
   void display() {
     noStroke();
     colorMode(HSB, width, 100, 100);
