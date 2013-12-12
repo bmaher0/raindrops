@@ -22,6 +22,5 @@ void shop() {
   }
   //coming soon text
   text("SHOP COMING SOON", width/2, height/2);
-  // upgrades not working, to be fixed  u.display();
 }
 

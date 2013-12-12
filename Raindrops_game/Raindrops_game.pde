@@ -3,7 +3,6 @@ int gameState;
 //game objects/mechanics
 int rate;
 ArrayList<Raindrops> rain;
-// upgrades not working, to be fixed: ArrayList<Upgrades> shop;
 Catcher c;
 Timer t;
 Game g;
@@ -14,10 +13,8 @@ int catcherD;
 //drop properties
 int minSize;
 int maxSize;
-
 //score and points
 String[] effects = new String[1];
-// upgrades not working, to be fixed Upgrades u;
 
 void setup() {
   size(500, 500);
