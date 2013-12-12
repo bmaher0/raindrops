@@ -1,3 +1,30 @@
+class GameInfo {
+  int score;
+  int points;
+  int oldPoints;
+  int lives;
+  GameInfo() {
+    score = 0;
+    points = 0;
+    oldPoints = 0;
+    lives = 3;
+  }
+  void display() {
+    colorMode(RGB, 255, 255, 255);
+    fill(255);
+    textSize(20);
+    textAlign(CENTER);
+    text("Points:"+points, width/2, height-25);
+    text("Lives:"+lives, 50, height-15);
+    textSize(10);
+    text("Score:"+score, width/2, height-10);
+    
+  }
+  void update() {
+    points = score - oldPoints;
+  }
+}
+
 class PauseMenu {
   PauseMenu() {
   }
@@ -18,6 +45,11 @@ class PauseMenu {
     }
   }
   void shopButton() {
+    rectMode(CORNER);
+    textAlign(CENTER);
+    textSize(20);
+    colorMode(HSB, 360, 100, 100);
+    //shop button
     fill(120, 100, 100);
     strokeWeight(5);
     stroke(240, 100, 100);
@@ -29,6 +61,11 @@ class PauseMenu {
     }
   }
   void resetButton() {
+    rectMode(CORNER);
+    textAlign(CENTER);
+    textSize(20);
+    colorMode(HSB, 360, 100, 100);
+    //Reset button
     fill(240, 100, 100);
     strokeWeight(5);
     stroke(360, 100, 100);

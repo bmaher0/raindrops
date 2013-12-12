@@ -14,6 +14,7 @@ void constructors() {
   s = new StartMenu();
   //construct PauseMenu
   p = new PauseMenu();
+  gi = new GameInfo();
 }
 
 //initialize variables
@@ -22,8 +23,5 @@ void initialize() {
   gameState = 0;
   minSize = 25;
   maxSize = 50;
-  score = 0;
-  points = 0;
-  oldPoints = 0;
   catcherD = 100;
 }

@@ -9,14 +9,13 @@ Timer t;
 Game g;
 StartMenu s;
 PauseMenu p;
+GameInfo gi;
 int catcherD;
 //drop properties
 int minSize;
 int maxSize;
+
 //score and points
-int score;
-int points;
-int oldPoints;
 String[] effects = new String[1];
 // upgrades not working, to be fixed Upgrades u;
 
@@ -28,14 +27,11 @@ void setup() {
   rain = new ArrayList<Raindrops>();
   //construct objects
   constructors();
-  //upgrades
-  // upgrades not working, to be fixed  u = new Upgrades(width/4, height/9, 100, 0);
-  effects[0] = "Increase radius";
 }
 
 void draw() {
   background(0);
-  rate = int(5000*exp(-.0005*score));
+  rate = int(5000*exp(-.0005*gi.score));
   //run based on state
   if (gameState == 0) {
     s.display();
@@ -58,9 +54,9 @@ void draw() {
   } 
   if (gameState > 0) {
     //run unless at start
-    displayInfo();
+    gi.display();
+    gi.update();
   }
-  points = score - oldPoints;
 }
 void keyPressed() {
   if (gameState > 0) {
