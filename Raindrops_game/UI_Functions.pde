@@ -18,7 +18,7 @@ void shop() {
   fill(240, 100, 100);
   text("Back to menu", width/2, height*15/18);
   if (button(width/4, height*7/9, width/2, height/9)) {
-    state = 2;
+    state = pauseState;
   }
   //coming soon text
   text("SHOP COMING SOON", width/2, height/2);

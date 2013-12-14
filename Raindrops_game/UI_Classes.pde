@@ -22,7 +22,7 @@ class GameInfo {
   void update() {
     points = score - oldPoints;
     if (lives < 1) {
-      state = 4;
+      state = loseState;
     }
   }
 }
@@ -43,7 +43,7 @@ class PauseMenu {
     fill(120, 100, 100);
     text("Resume", width/2, height*3/18);
     if (button(width/4, height/9, width/2, height/9)) {
-      state = 1;
+      state = gameState;
     }
   }
   void shopButton() {
@@ -59,7 +59,7 @@ class PauseMenu {
     fill(240, 100, 100);
     text("Open shop", width/2, height*7/18);
     if (button(width/4, height/3, width/2, height/9)) {
-      state = 3;
+      state = shopState;
     }
   }
   void resetButton() {
@@ -102,7 +102,7 @@ class StartMenu {
   void update() {
     //button
     if (button(width/4, height/3, width/2, height/9)) {
-      state = 1;
+      state = gameState;
     }
   }
 }

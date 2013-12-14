@@ -30,41 +30,41 @@ void draw() {
   background(0);
   rate = int(5000*exp(-.0005*gi.score));
   //run based on state
-  if (state == 0) {
+  if (state == startState) {
     s.display();
     s.update();
   } 
-  if (state == 1) {
+  if (state == gameState) {
     g.update();
     g.display();
   } 
-  if (state == 2) {
+  if (state == pauseState) {
     p.resumeButton();
     p.shopButton();
     p.resetButton();
   } 
-  if (state == 3) {
+  if (state == shopState) {
     shop();
   } 
-  if (state == 4) {
+  if (state == loseState) {
     lose();
   } 
-  if (state > 0) {
+  if (state > startState) {
     //run unless at start
     gi.display();
     gi.update();
   }
 }
 void keyPressed() {
-  if (state > 0) {
+  if (state > startState) {
     if (key == 'p') {
-      state = 2;
+      state = pauseState;
     }
     if (key == 'r') {
-      state = 1;
+      state = gameState;
     }
     if (key == 's') {
-      state = 3;
+      state = shopState;
     }
   }
 }

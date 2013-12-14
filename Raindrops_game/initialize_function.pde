@@ -20,13 +20,14 @@ void constructors() {
 //initialize variables
 void initialize() {
   noStroke();
-  state = 0;
-  minSize = 25;
-  maxSize = 50;
-  catcherD = 100;
   startState = 0;
   gameState = 1;
   pauseState = 2;
   shopState = 3;
   loseState = 4;
+  state = startState;
+  minSize = 25;
+  maxSize = 50;
+  catcherD = 100;
 }
+
