@@ -57,6 +57,7 @@ void draw() {
     gi.display();
     gi.update();
   }
+  println(gi.lives);
 }
 void keyPressed() {
   if (state > startState) {
@@ -68,6 +69,9 @@ void keyPressed() {
     }
     if (key == 's') {
       state = shopState;
+    }
+    if (key == 'v') {
+      reset();
     }
   }
 }

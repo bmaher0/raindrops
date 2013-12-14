@@ -19,6 +19,12 @@ class GameInfo {
     textSize(10);
     text("Score:"+score, width/2, height-10);
   }
+  void reset() {
+    score = 0;
+    points = 0;
+    oldPoints = 0;
+    lives = 3;
+  }
   void update() {
     points = score - oldPoints;
     if (lives < 1) {
