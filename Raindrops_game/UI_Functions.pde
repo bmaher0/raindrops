@@ -1,4 +1,4 @@
-boolean button(int x, int y, int w, int h) {
+boolean button(float x, float y, float w, float h) {
   if (mousePressed && mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
     return true;
   }
@@ -10,6 +10,10 @@ boolean button(int x, int y, int w, int h) {
 void shop() {
   colorMode(HSB, 360, 100, 100);
   textSize(20);
+  for (int i = 0; i < upgrades.length; i++) {
+    upgrades[i].display();
+    upgrades[i].update();
+  }
   //return to menu button
   fill(120, 100, 100);
   strokeWeight(5);
@@ -20,7 +24,5 @@ void shop() {
   if (button(width/4, height*7/9, width/2, height/9)) {
     state = pauseState;
   }
-  //coming soon text
-  text("SHOP COMING SOON", width/2, height/2);
 }
 

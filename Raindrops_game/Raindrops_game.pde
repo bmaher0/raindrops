@@ -3,6 +3,9 @@ int state, startState, gameState, pauseState, shopState, loseState;
 //game objects/mechanics
 int rate;
 ArrayList<Raindrops> rain;
+Upgrade[] upgrades = new Upgrade[2];
+PVector[][] upgradeInfo = new PVector[upgrades.length][2];
+String[] upgradeText = new String[upgrades.length];
 Catcher c;
 Timer t;
 Game g;
