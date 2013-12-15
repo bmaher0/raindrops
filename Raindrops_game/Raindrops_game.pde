@@ -9,6 +9,7 @@ Game g;
 StartMenu s;
 PauseMenu p;
 GameInfo gi;
+LoseMenu l;
 int catcherD;
 //Information for upgrades
 Upgrade[] upgrades = new Upgrade[2];
@@ -56,7 +57,7 @@ void draw() {
   } 
   if (state == loseState) {
     //lose screen
-    lose();
+    l.display();
   } 
   if (state > startState) {
     //run gameinfo unless at start
@@ -77,7 +78,7 @@ void keyPressed() {
     if (key == 's') {
       state = shopState;
     }
-    if (key == 'v') {
+    if (key == 'q') {
       reset();
     }
   }

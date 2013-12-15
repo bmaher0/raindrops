@@ -36,6 +36,35 @@ class GameInfo {
   }
 }
 
+class LoseMenu {
+  String[] highScores = new String[20];
+  int scoreRank;
+  LoseMenu() {
+  }
+  void display() {
+    colorMode(HSB, random(360), 100, 100);
+    background(random(360), 100, 100);
+    textSize(75);
+    textAlign(CENTER);
+    fill(random(360), 100, 100);
+    text("UR LOZER lOL", width/2, height/2);
+    //reset button
+    rectMode(CORNER);
+    textAlign(CENTER);
+    textSize(20);
+    colorMode(HSB, 360, 100, 100);
+    //Reset button
+    fill(240, 100, 100);
+    strokeWeight(5);
+    stroke(360, 100, 100);
+    rect(width/4, height*7/9, width/2, height/9);
+    fill(360, 100, 100);
+    text("Reset game", width/2, height*15/18);
+    if (button(width/4, height*7/9, width/2, height/9)) {
+      reset();
+    }
+  }
+}
 class PauseMenu {
   PauseMenu() {
   }
@@ -106,7 +135,7 @@ class StartMenu {
     textSize(10);
     textAlign(CENTER);
     fill(255);
-    text("CONTROLS: \n Mouse- move catcher \n p - pause \n r - resume \n s - shop \n v - quick reset", width/2, height/2);
+    text("CONTROLS: \n Mouse- move catcher \n p - pause \n r - resume \n s - shop \n q - quick reset", width/2, height/2);
   }
   void update() {
     //if clicked, then start game
