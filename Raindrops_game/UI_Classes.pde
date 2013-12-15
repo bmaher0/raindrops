@@ -10,6 +10,7 @@ class GameInfo {
     lives = 3;
   }
   void display() {
+    //display gameinfo text
     colorMode(RGB, 255, 255, 255);
     fill(255);
     textSize(20);
@@ -26,7 +27,9 @@ class GameInfo {
     lives = 3;
   }
   void update() {
+    //update score
     points = score - oldPoints;
+    //if lives is less than 1, then you lose
     if (lives < 1) {
       state = loseState;
     }
@@ -89,7 +92,7 @@ class StartMenu {
   StartMenu() {
   }
   void display() {
-    //start button
+    //draws reset button
     colorMode(HSB, 360, 100, 100);
     textSize(20);
     fill(120, 100, 100);
@@ -103,10 +106,10 @@ class StartMenu {
     textSize(10);
     textAlign(CENTER);
     fill(255);
-    text("CONTROLS: \n Mouse- move catcher \n p - pause \n r - resume \n s - shop", width/2, height/2);
+    text("CONTROLS: \n Mouse- move catcher \n p - pause \n r - resume \n s - shop \n v - quick reset", width/2, height/2);
   }
   void update() {
-    //button
+    //if clicked, then start game
     if (button(width/4, height/3, width/2, height/9)) {
       state = gameState;
     }

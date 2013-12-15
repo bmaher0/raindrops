@@ -6,6 +6,7 @@ class Raindrops {
 
   Raindrops() {
     d = int(random(minSize, maxSize));
+    //random loc on top of screen
     loc = new PVector(random(width), 0);
     vel = new PVector(random(-.05, .05), random(.5));
     acc = new PVector(0, random(.05));

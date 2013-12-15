@@ -1,3 +1,4 @@
+//if clicked within rect(x, y, w, h), then true
 boolean button(float x, float y, float w, float h) {
   if (mousePressed && mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
     return true;
@@ -7,6 +8,7 @@ boolean button(float x, float y, float w, float h) {
   }
 }
 
+//displays shop
 void shop() {
   colorMode(HSB, 360, 100, 100);
   textSize(20);
