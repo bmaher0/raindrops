@@ -1,7 +1,6 @@
 //states
 int state, startState, gameState, pauseState, shopState, loseState;
 //game objects/mechanics
-int rate;
 ArrayList<Raindrops> rain;
 Catcher c;
 Timer t;
@@ -12,14 +11,12 @@ GameInfo gi;
 LoseMenu l;
 int catcherD;
 //Information for upgrades
-Upgrade[] upgrades = new Upgrade[2];
+Upgrade[] upgrades = new Upgrade[3];
 PVector[][] upgradeInfo = new PVector[upgrades.length][2];
 String[] upgradeText = new String[upgrades.length];
 //drop properties
 int minSize;
 int maxSize;
-//score and points
-String[] effects = new String[1];
 
 void setup() {
   size(500, 500);
@@ -33,7 +30,6 @@ void setup() {
 
 void draw() {
   background(0);
-  rate = int(5000*exp(-.0005*gi.score));
   //run based on state
   if (state == startState) {
     //start menu
@@ -64,7 +60,6 @@ void draw() {
     gi.display();
     gi.update();
   }
-  println(gi.lives);
 }
 void keyPressed() {
   ///switch states using keys

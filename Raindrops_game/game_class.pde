@@ -4,7 +4,7 @@ class Game {
   }
   void display() { 
     //update Timer
-    t.update(rate);
+    t.update();
     //update Catcher
     c.update();
     c.display();
@@ -20,7 +20,12 @@ class Game {
       drop.update();
       // if caught, remove raindrop
       if (dist(drop.loc.x, drop.loc.y, c.loc.x, c.loc.y) < drop.d/2+c.d/2) {
-        gi.score+=drop.vel.y;
+        if (abs(c.hue%360 - drop.hue%360) < 60) {
+          gi.score+=3*drop.vel.y;
+        } 
+        else {
+          gi.score+=drop.vel.y;
+        }        
         rain.remove(i);
         rain.add(new Raindrops());
       }
