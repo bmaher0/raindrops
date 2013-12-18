@@ -3,11 +3,16 @@ class GameInfo {
   int points;
   int oldPoints;
   int lives;
+  int rate;
+  int rateLower;
+
   GameInfo() {
     score = 0;
     points = 0;
     oldPoints = 0;
     lives = 3;
+    rate = 5500;
+    rateLower = 0;
   }
   void display() {
     //display gameinfo text
@@ -25,6 +30,8 @@ class GameInfo {
     points = 0;
     oldPoints = 0;
     lives = 3;
+    rate = 0;
+    rateLower = 0;
   }
   void update() {
     //update score
@@ -33,6 +40,7 @@ class GameInfo {
     if (lives < 1) {
       state = loseState;
     }
+    rate = int(5000*exp(-.0005*(score-rateLower)))+500;
   }
 }
 
@@ -94,7 +102,7 @@ class PauseMenu {
     strokeWeight(5);
     stroke(240, 100, 100);
     rect(width/4, height/3, width/2, height/9);
-    fill(240, 100, 100);
+    fill(0, 100, 100);
     text("Open shop", width/2, height*7/18);
     if (button(width/4, height/3, width/2, height/9)) {
       state = shopState;

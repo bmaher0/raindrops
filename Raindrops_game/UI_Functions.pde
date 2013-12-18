@@ -21,7 +21,7 @@ void shop() {
   strokeWeight(5);
   stroke(240, 100, 100);
   rect(width/4, height*7/9, width/2, height/9);
-  fill(240, 100, 100);
+  fill(0, 100, 100);
   text("Back to menu", width/2, height*15/18);
   if (button(width/4, height*7/9, width/2, height/9)) {
     state = pauseState;

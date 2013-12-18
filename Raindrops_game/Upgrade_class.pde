@@ -13,7 +13,7 @@ class Upgrade {
     price = 100;
     inc = 1.25;
     buys = 0;
-    if (id == 0) {
+    if (id == 0 || id == 2) {
       buyLimit = 0;
     } 
     if (id == 1) {
@@ -41,6 +41,10 @@ class Upgrade {
         if (id == 1) {
           catcherD+=20;
         }
+        if (id == 2) {
+          gi.rateLower+=1000;
+        }
+
         gi.oldPoints+=price;
         price = int(price*inc);
       }
