@@ -1,48 +1,4 @@
-class GameInfo {
-  int score;
-  int points;
-  int oldPoints;
-  int lives;
-  int rate;
-  int rateLower;
 
-  GameInfo() {
-    score = 0;
-    points = 0;
-    oldPoints = 0;
-    lives = 3;
-    rate = 5500;
-    rateLower = 0;
-  }
-  void display() {
-    //display gameinfo text
-    colorMode(RGB, 255, 255, 255);
-    fill(255);
-    textSize(20);
-    textAlign(CENTER);
-    text("Points:"+points, width/2, height-25);
-    text("Lives:"+lives, 50, height-15);
-    textSize(10);
-    text("Score:"+score, width/2, height-10);
-  }
-  void reset() {
-    score = 0;
-    points = 0;
-    oldPoints = 0;
-    lives = 3;
-    rate = 0;
-    rateLower = 0;
-  }
-  void update() {
-    //update score
-    points = score - oldPoints;
-    //if lives is less than 1, then you lose
-    if (lives < 1) {
-      state = loseState;
-    }
-    rate = int(5000*exp(-.0005*(score-rateLower)))+500;
-  }
-}
 
 class LoseMenu {
   String[] highScores = new String[20];
@@ -69,7 +25,7 @@ class LoseMenu {
     fill(360, 100, 100);
     text("Reset game", width/2, height*15/18);
     if (button(width/4, height*7/9, width/2, height/9)) {
-      reset();
+      g.reset();
     }
   }
 }
@@ -121,7 +77,7 @@ class PauseMenu {
     fill(360, 100, 100);
     text("Reset game", width/2, height*11/18);
     if (button(width/4, height*5/9, width/2, height/9)) {
-      reset();
+      g.reset();
     }
   }
 }

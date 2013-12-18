@@ -11,7 +11,7 @@ class Timer {
   //timer class, returns check as true every (timeRate) milliseconds
   void update() {
     currentTime = millis();
-    if (currentTime - oldTime > gi.rate) {
+    if (currentTime - oldTime > g.rate) {
       oldTime = currentTime;
       check = true;
     } 

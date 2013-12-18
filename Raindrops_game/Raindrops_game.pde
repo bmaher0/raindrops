@@ -1,5 +1,9 @@
 //states
 int state, startState, gameState, pauseState, shopState, loseState;
+//Information for upgrades
+Upgrade[] upgrades = new Upgrade[4];
+PVector[][] upgradeInfo = new PVector[upgrades.length][2];
+String[] upgradeText = new String[upgrades.length];
 //game objects/mechanics
 ArrayList<Raindrops> rain;
 Catcher c;
@@ -7,13 +11,7 @@ Timer t;
 Game g;
 StartMenu s;
 PauseMenu p;
-GameInfo gi;
 LoseMenu l;
-int catcherD;
-//Information for upgrades
-Upgrade[] upgrades = new Upgrade[3];
-PVector[][] upgradeInfo = new PVector[upgrades.length][2];
-String[] upgradeText = new String[upgrades.length];
 //drop properties
 int minSize;
 int maxSize;
@@ -57,10 +55,11 @@ void draw() {
   } 
   if (state > startState) {
     //run gameinfo unless at start
-    gi.display();
-    gi.update();
+    g.displayInfo();
+    g.updateInfo();
   }
 }
+
 void keyPressed() {
   ///switch states using keys
   if (state > startState) {
@@ -74,7 +73,7 @@ void keyPressed() {
       state = shopState;
     }
     if (key == 'q') {
-      reset();
+      g.reset();
     }
   }
 }

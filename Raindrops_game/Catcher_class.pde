@@ -4,15 +4,14 @@ class Catcher {
   int hue;
 
   Catcher() {
-    d = catcherD;
-    loc = new PVector(mouseX, height-50-catcherD/2);
+    d = 100;
+    loc = new PVector(mouseX, height-50-d);
     hue = 0;
   }
   //sets catcher position
   void update() {
-    d = catcherD;
     loc.x = mouseX;
-    loc.y = height-50-catcherD/2;
+    loc.y = height-50-d/2;
     hue = int(float(mouseX)/float(width)*360);
     println(hue);
   }

@@ -9,8 +9,8 @@ class Raindrops {
     d = int(random(minSize, maxSize));
     //random loc on top of screen
     loc = new PVector(random(width), 0);
-    vel = new PVector(random(-.05, .05), random(0, .5));
-    acc = new PVector(0, random(.05));
+    vel = new PVector(random(-.05, .05), random(0, g.maxAcc));
+    acc = new PVector(0, random(0, g.maxAcc));
     hue = int(random(360));
   }
   //creates raindrop ellipse
