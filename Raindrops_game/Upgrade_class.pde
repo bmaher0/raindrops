@@ -7,21 +7,22 @@ class Upgrade {
   int buyLimit;
   float inc;
   String text;
-  Upgrade(int idx) {
-    loc = new PVector(upgradeInfo[idx][0].x, upgradeInfo[idx][0].y);
-    size = new PVector(upgradeInfo[idx][1].x, upgradeInfo[idx][1].y);
-    id = idx;
-    price = 100;
-    inc = 1.25;
+  Upgrade(int idt) {
+    loc = new PVector(upgradeInfo[idt][0].x, upgradeInfo[idt][0].y);
+    size = new PVector(upgradeInfo[idt][1].x, upgradeInfo[idt][1].y);
+    id = idt;
     buys = 0;
-    if (id == 0 || id == 2 || id == 3) {
-      buyLimit = 0;
-    } 
     if (id == 1) {
-      buyLimit = 10;
+      buyLimit = 5;
+      inc = 1.75;
+      price = 150;
+    } 
+    else {
+      buyLimit = 0;
+      inc = 1.25;
+      price = 100;
     }
     text = upgradeText[id];
-    
   }
   void display() {
     colorMode(HSB, 360, 100, 100);

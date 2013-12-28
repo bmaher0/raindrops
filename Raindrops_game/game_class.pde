@@ -62,25 +62,23 @@ class Game {
     rate = int(5000*exp(-.0005*(score-rateLower)))+500;
     maxAcc = .05 + score/10000 - accLower;
     if (maxAcc < .01) {
-     maxAcc = .01; 
+      maxAcc = .01;
     }
     for (int i = 0; i < rain.size(); i++) {
       Raindrops drop = rain.get(i);
       drop.update();
       // if caught, remove raindrop
       if (dist(drop.loc.x, drop.loc.y, c.loc.x, c.loc.y) < drop.d/2+c.d/2) {
-        if (abs(c.hue%360 - drop.hue%360) < 60) {
-          g.score+=3*drop.vel.y;
+        if (abs(c.hue%360 - drop.hue) < 10) {
+          lives++;
         } 
-        else {
-          g.score+=drop.vel.y;
-        }        
+        score+=drop.vel.y;        
         rain.remove(i);
         rain.add(new Raindrops());
       }
       //if falls, lose game
       if (drop.loc.y > height) {
-        g.lives--;
+        lives--;
         rain.remove(i);
       }
     }
@@ -98,4 +96,3 @@ class Game {
     }
   }
 }
-

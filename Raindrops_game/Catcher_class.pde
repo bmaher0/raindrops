@@ -13,7 +13,6 @@ class Catcher {
     loc.x = mouseX;
     loc.y = height-50-d/2;
     hue = int(float(mouseX)/float(width)*360);
-    println(hue);
   }
   //display catcher ball
   void display() {
