@@ -14,14 +14,17 @@ void constructors() {
   s = new StartMenu();
   //construct PauseMenu
   p = new PauseMenu();
-  //construct LoseMenu;
+  //construct LoseMenu
   l = new LoseMenu();
-  //construct upgrade locs
+  //constrcut shop
+  sh = new Shop();
   /* 
    upgrade 1 = extra life 
    upgrade 2 = bigger catcher
    upgrade 3 = slower spawn rate
+   upgrade 4 = lower drop acc
    */
+  //construct upgrade locs
   upgradeInfo[0][0] = new PVector(width/4, height/9);
   upgradeInfo[1][0] = new PVector(width/4, height/3);
   upgradeInfo[2][0] = new PVector(width*9/16, height/9);
@@ -43,7 +46,8 @@ void initialize() {
   gameState = 1;
   pauseState = 2;
   shopState = 3;
-  loseState = 4;
+  ctrlState = 4;
+  loseState = 5;
   state = startState;
   minSize = 25;
   maxSize = 50;

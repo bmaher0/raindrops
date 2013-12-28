@@ -1,9 +1,13 @@
 //states
-int state, startState, gameState, pauseState, shopState, loseState;
+int state, startState, gameState, pauseState, shopState, ctrlState, loseState;
 //Information for upgrades
 Upgrade[] upgrades = new Upgrade[4];
 PVector[][] upgradeInfo = new PVector[upgrades.length][2];
 String[] upgradeText = new String[upgrades.length];
+//array for Pro tips
+String[] proTips = {
+  "For a harder game with higher scores, play on A-D mode!", "Matching catcher colors and drop catcher gives a bonus life!", "Ms. Gerstein is the best teacher ever!!!", "Green is not a creative color!"
+};
 //game objects/mechanics
 ArrayList<Raindrops> rain;
 Catcher c;
@@ -12,6 +16,7 @@ Game g;
 StartMenu s;
 PauseMenu p;
 LoseMenu l;
+Shop sh;
 //drop properties
 int minSize;
 int maxSize;
@@ -47,8 +52,12 @@ void draw() {
   } 
   if (state == shopState) {
     //shop function
-    shop();
+    sh.display();
   } 
+  if (state == ctrlState) {
+    //display list of controls
+    ctrlList();
+  }
   if (state == loseState) {
     //lose screen
     l.display();
@@ -58,22 +67,28 @@ void draw() {
     g.displayInfo();
     g.updateInfo();
   }
+  if (state == pauseState || state == shopState) {
+    proTips();
+  }
 }
 
 void keyPressed() {
   ///switch states using keys
   if (state > startState) {
+    if (key == 'c') {
+      state = ctrlState;
+    }
     if (key == 'p') {
-      state = pauseState;
+      p.set();
     }
     if (key == 'r') {
-      state = gameState;
+      g.set();
     }
     if (key == 's') {
-      state = shopState;
-      if (key == 'q') {
-        g.reset();
-      }
+      sh.set();
+    }
+    if (key == 'q') {
+      g.reset();
     }
   }
 }
@@ -85,3 +100,4 @@ void mousePressed() {
     }
   }
 }
+

@@ -2,11 +2,13 @@ class Catcher {
   PVector loc;
   int d;
   int hue;
+  int keySpeed;
 
   Catcher() {
     d = 100;
     loc = new PVector(width/2, height-50-d);
     hue = 0;
+    keySpeed = 3;
   }
   //sets catcher position
   void update() {
@@ -16,10 +18,10 @@ class Catcher {
     }
     else {
       if (key == 'a') {
-        c.loc.x-=10;
+        c.loc.x-=keySpeed;
       }
       if (key == 'd') {
-        c.loc.x+=10;
+        c.loc.x+=keySpeed;
       }
     }
     hue = int(float(mouseX)/float(width)*360);

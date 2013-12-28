@@ -32,6 +32,10 @@ class LoseMenu {
 class PauseMenu {
   PauseMenu() {
   }
+  void set() {
+    state = pauseState;
+    g.tip++;
+  }
   void resumeButton() {  
     rectMode(CORNER);
     textAlign(CENTER);
@@ -45,7 +49,7 @@ class PauseMenu {
     fill(120, 100, 100);
     text("Resume", width/2, height*3/18);
     if (button(width/4, height/9, width/2, height/9)) {
-      state = gameState;
+      g.set();
     }
   }
   void shopButton() {
@@ -61,7 +65,7 @@ class PauseMenu {
     fill(0, 100, 100);
     text("Open shop", width/2, height*7/18);
     if (button(width/4, height/3, width/2, height/9)) {
-      state = shopState;
+      sh.set();
     }
   }
   void resetButton() {
@@ -81,8 +85,37 @@ class PauseMenu {
     }
   }
 }
+class Shop {
+  Shop() {
+  }
+  void set() {
+    state = shopState;
+    g.tip++;
+  }
+  void display() {
+    colorMode(HSB, 360, 100, 100);
+    textSize(20);
+    for (int i = 0; i < upgrades.length; i++) {
+      upgrades[i].display();
+      upgrades[i].update();
+    }
+    //return to menu button
+    fill(120, 100, 100);
+    strokeWeight(5);
+    stroke(240, 100, 100);
+    rect(width/4, height*7/9, width/2, height/9);
+    fill(0, 100, 100);
+    text("Back to menu", width/2, height*15/18);
+    if (button(width/4, height*7/9, width/2, height/9)) {
+      p.set();
+    }
+  }
+}
 class StartMenu {
   StartMenu() {
+  }
+  void set() {
+    state = startState;
   }
   void display() {
     //draws reset button

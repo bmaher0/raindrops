@@ -9,6 +9,7 @@ class Game {
   float maxAcc;
   float accLower;
   boolean mouseMode;
+  int tip;
 
   Game() {
     score = 0;
@@ -20,6 +21,10 @@ class Game {
     maxAcc = .01;
     accLower = 0;
     mouseMode = true;
+    tip = -1;
+  }
+  void set() {
+    g.set();
   }
   void display() { 
     //update Timer
@@ -51,7 +56,7 @@ class Game {
     text("Score:"+score, width/2, height-10);
   }
   void reset() {
-    state = startState;
+    s.set();
     score = 0;
     points = 0;
     oldPoints = 0;
@@ -80,7 +85,12 @@ class Game {
         if (abs(c.hue%360 - drop.hue) < 10) {
           lives++;
         } 
-        score+=drop.vel.y;        
+        if (mouseMode) {
+          score+=drop.vel.y;
+        } 
+        else {
+          score+=4*drop.vel.y;
+        }
         rain.remove(i);
         rain.add(new Raindrops());
       }
