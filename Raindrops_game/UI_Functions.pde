@@ -11,7 +11,7 @@ void ctrlList() {
   textAlign(CENTER);
   textSize(15);
   fill(255);
-  text("CONTROLS: \n r - resume \n s - shop \n q - quick reset \n left mouse - toggle Mouse Mode and Key Mode \n Mouse Mode:\n Mouse- move catcher\n A-D Mode: \n a: move left \n d: move right", width/2, height/3);
+  text("CONTROLS: \n r - resume \n s - shop \n q - quick reset \n left mouse - toggle Mouse Mode and Key Mode \n Mouse Mode:\n Drag mouse to move catcher\n A-D Mode: \n a: move left \n d: move right", width/2, height/3);
   p.resumeButton();
 }
 //displays protips

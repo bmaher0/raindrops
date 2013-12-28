@@ -34,7 +34,7 @@ class PauseMenu {
   }
   void set() {
     state = pauseState;
-    g.tip++;
+    g.tip = int(random(proTips.length)-.01);
   }
   void resumeButton() {  
     rectMode(CORNER);
@@ -90,7 +90,7 @@ class Shop {
   }
   void set() {
     state = shopState;
-    g.tip++;
+    g.tip = int(random(proTips.length)-.01);
   }
   void display() {
     colorMode(HSB, 360, 100, 100);

@@ -19,6 +19,7 @@ class Raindrops {
     colorMode(HSB, 360, 100, 100);
     fill(hue, 100, 100);
     ellipse(loc.x, loc.y, d, d);
+    triangle(loc.x-d/2, loc.y, loc.x+d/2, loc.y, loc.x, loc.y-2*d);
   }
   //updates PVectors
   void update() {

@@ -3,12 +3,14 @@ class Catcher {
   int d;
   int hue;
   int keySpeed;
+  PImage umb;
 
   Catcher() {
     d = 100;
     loc = new PVector(width/2, height-50-d);
     hue = 0;
     keySpeed = 3;
+    umb = loadImage("umbrella.png");
   }
   //sets catcher position
   void update() {
@@ -31,7 +33,9 @@ class Catcher {
     noStroke();
     colorMode(HSB, 360, 100, 100);
     fill(hue, 100, 100);
-    ellipse(loc.x, loc.y, d, d);
+//old ellipse    ellipse(loc.x, loc.y, d, d);
+imageMode(CENTER);
+image(umb, loc.x, loc.y, d, d);
   }
 }
 

@@ -6,7 +6,7 @@ PVector[][] upgradeInfo = new PVector[upgrades.length][2];
 String[] upgradeText = new String[upgrades.length];
 //array for Pro tips
 String[] proTips = {
-  "For a harder game with higher scores, play on A-D mode!", "Matching catcher colors and drop catcher gives a bonus life!", "Ms. Gerstein is the best teacher ever!!!", "Green is not a creative color!"
+  "For a harder game with higher scores, play on A-D mode!", "Matching catcher colors and drop colors gives a bonus life!", "Ms. Gerstein is the best teacher ever!!!", "Green is not a creative color!","Punch trees for wood","expect the Spanish Inquisition","bring me a shubbery","2 + 2 = 10","join Team 1257","The concepts of Gracious Professionalism and Coopertition \n are fundamental parts of the FIRST philosophy.","finish him!","Erik's program is probably weirder than this one"
 };
 //game objects/mechanics
 ArrayList<Raindrops> rain;
