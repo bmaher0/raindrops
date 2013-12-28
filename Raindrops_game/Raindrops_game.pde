@@ -39,39 +39,38 @@ void draw() {
     s.display();
     s.update();
   } 
-  if (state == gameState) {
-    //game
-    g.update();
-    g.display();
-  } 
-  if (state == pauseState) {
-    //pause menu
-    p.resumeButton();
-    p.shopButton();
-    p.resetButton();
-  } 
-  if (state == shopState) {
-    //shop function
-    sh.display();
-  } 
-  if (state == ctrlState) {
-    //display list of controls
-    ctrlList();
-  }
-  if (state == loseState) {
-    //lose screen
-    l.display();
-  } 
-  if (state > startState) {
+  else { 
     //run gameinfo unless at start
     g.displayInfo();
     g.updateInfo();
+    if (state == gameState) {
+      //game
+      g.update();
+      g.display();
+    } 
+    else if (state == pauseState) {
+      //pause menu
+      p.resumeButton();
+      p.shopButton();
+      p.resetButton();
+    } 
+    else if (state == shopState) {
+      //shop function
+      sh.display();
+    } 
+    else if (state == ctrlState) {
+      //display list of controls
+      ctrlList();
+    }
+    else if (state == loseState) {
+      //lose screen
+      l.display();
+    }
   }
   if (state == pauseState || state == shopState) {
     proTips();
   }
 }
-
 void keyPressed() {
   ///switch states using keys
   if (state > startState) {
