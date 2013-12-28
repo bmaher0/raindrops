@@ -71,10 +71,17 @@ void keyPressed() {
     }
     if (key == 's') {
       state = shopState;
-    }
-    if (key == 'q') {
-      g.reset();
+      if (key == 'q') {
+        g.reset();
+      }
     }
   }
 }
 
+void mousePressed() {
+  if (state == gameState) {
+    if (mouseButton == LEFT) {
+      g.mouseMode = !g.mouseMode;
+    }
+  }
+}

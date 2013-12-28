@@ -99,7 +99,7 @@ class StartMenu {
     textSize(10);
     textAlign(CENTER);
     fill(255);
-    text("CONTROLS: \n Mouse- move catcher \n p - pause \n r - resume \n s - shop \n q - quick reset", width/2, height/2);
+    text("CONTROLS: \n r - resume \n s - shop \n q - quick reset \n left mouse - toggle Mouse Mode and Key Mode \n Mouse Mode:\n Mouse- move catcher\n A-D Mode: \n a: move left \n d: move right", width/2, height/2);
   }
   void update() {
     //if clicked, then start game

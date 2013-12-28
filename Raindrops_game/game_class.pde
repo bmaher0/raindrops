@@ -8,6 +8,7 @@ class Game {
   int rateLower;
   float maxAcc;
   float accLower;
+  boolean mouseMode;
 
   Game() {
     score = 0;
@@ -18,6 +19,7 @@ class Game {
     rateLower = 0;
     maxAcc = .01;
     accLower = 0;
+    mouseMode = true;
   }
   void display() { 
     //update Timer
@@ -39,6 +41,12 @@ class Game {
     textAlign(CENTER);
     text("Points:"+points, width/2, height-25);
     text("Lives:"+lives, 50, height-15);
+    if (mouseMode) {
+      text("Mouse Mode", width-75, height-15);
+    }
+    else {
+      text("A-D Mode", width-75, height-15);
+    }
     textSize(10);
     text("Score:"+score, width/2, height-10);
   }
@@ -96,3 +104,4 @@ class Game {
     }
   }
 }
+
