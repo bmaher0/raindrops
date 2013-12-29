@@ -1,6 +1,5 @@
 class Timer {
   //check will be true every timerRate milliseconds
-  int currentTime;
   int oldTime;
   boolean check;
 
@@ -8,13 +7,13 @@ class Timer {
     oldTime = 0;
   }
 
-  //timer class, returns check as true every (timeRate) milliseconds
   void update() {
-    currentTime = millis();
-    if (currentTime - oldTime > g.rate) {
-      oldTime = currentTime;
+    //if it has been g.rate milliseconds since last check == true, then check == true
+    if (millis() - oldTime > g.rate) {
+      oldTime = millis();
       check = true;
     } 
+    //if not, check == false
     else { 
       check = false;
     }

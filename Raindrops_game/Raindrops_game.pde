@@ -1,14 +1,16 @@
 //states
 int state, startState, gameState, pauseState, shopState, ctrlState, loseState;
-//Information for upgrades
+//Array of upgrades
 Upgrade[] upgrades = new Upgrade[4];
+//locs/sizes of upgrades
 PVector[][] upgradeInfo = new PVector[upgrades.length][2];
+//upgrade descriptions
 String[] upgradeText = new String[upgrades.length];
 //array for Pro tips
 String[] proTips = {
-  "For a harder game with higher scores, play on A-D mode!", "Matching catcher colors and drop colors gives a bonus life!", "Ms. Gerstein is the best teacher ever!!!", "Green is not a creative color!","Punch trees for wood","expect the Spanish Inquisition","bring me a shubbery","2 + 2 = 10","join Team 1257","The concepts of Gracious Professionalism and Coopertition \n are fundamental parts of the FIRST philosophy.","finish him!","Erik's program is probably weirder than this one"
+  "For a harder game with higher scores, play on A-D mode!", "Ms. Gerstein is the best teacher ever!!!", "Green is not a creative color!", "Punch trees for wood", "expect the Spanish Inquisition", "bring me a shubbery", "2 + 2 = 10", "join Team 1257", "The concepts of Gracious Professionalism and Coopertition \n are fundamental parts of the FIRST philosophy.", "finish him!", "Erik's program is probably weirder than this one"
 };
-//game objects/mechanics
+//game objects
 ArrayList<Raindrops> rain;
 Catcher c;
 Timer t;
@@ -20,6 +22,10 @@ Shop sh;
 //drop properties
 int minSize;
 int maxSize;
+//drop image
+PImage rd;
+//shrub image
+PImage sr;
 
 void setup() {
   size(500, 500);
@@ -67,32 +73,40 @@ void draw() {
       l.display();
     }
   }
+  //at pause and shop menus, display protips
   if (state == pauseState || state == shopState) {
     proTips();
   }
 }
 void keyPressed() {
-  ///switch states using keys
+  //switch states using keys
+  //runs if not at startmenu
   if (state > startState) {
+    //if c, then show controls
     if (key == 'c') {
       state = ctrlState;
     }
+    //if p, then pause game
     if (key == 'p') {
       p.set();
     }
+    //if r, then resume game
     if (key == 'r') {
       g.set();
     }
+    //if s, then open shop
     if (key == 's') {
       sh.set();
     }
+    //if q, quick reset game
     if (key == 'q') {
-      g.reset();
+      l.set();
     }
   }
 }
 
 void mousePressed() {
+  //if left mouse is pressed during the game, toggle mouseMode
   if (state == gameState) {
     if (mouseButton == LEFT) {
       g.mouseMode = !g.mouseMode;
