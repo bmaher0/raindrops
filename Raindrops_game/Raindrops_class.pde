@@ -3,7 +3,7 @@ class Raindrops {
   PVector vel;
   PVector acc;
   int d;
-  int hue;
+  PImage rd;
 
   Raindrops() {
     d = int(random(minSize, maxSize));
@@ -11,15 +11,12 @@ class Raindrops {
     loc = new PVector(random(width), 0);
     vel = new PVector(random(-.05, .05), random(0, g.maxAcc));
     acc = new PVector(0, random(0, g.maxAcc));
-    hue = int(random(360));
+    rd = loadImage("raindrop.png");
   }
   //creates raindrop ellipse
   void display() {
-    noStroke();
-    colorMode(HSB, 360, 100, 100);
-    fill(hue, 100, 100);
-    ellipse(loc.x, loc.y, d, d);
-    triangle(loc.x-d/2, loc.y, loc.x+d/2, loc.y, loc.x, loc.y-2*d);
+    imageMode(CORNER);
+    image(rd, loc.x-d/2, loc.y + d, d, 1.5*d);
   }
   //updates PVectors
   void update() {
@@ -27,3 +24,4 @@ class Raindrops {
     loc.add(vel);
   }
 }
+

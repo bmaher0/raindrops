@@ -82,9 +82,6 @@ class Game {
       drop.update();
       // if caught, remove raindrop
       if (dist(drop.loc.x, drop.loc.y, c.loc.x, c.loc.y) < drop.d/2+c.d/2) {
-        if (abs(c.hue%360 - drop.hue) < 10) {
-          lives++;
-        } 
         if (mouseMode) {
           score+=drop.vel.y;
         } 
