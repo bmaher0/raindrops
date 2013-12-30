@@ -32,8 +32,12 @@ class Raindrops {
     } 
     //if not a shrub, then display rain image
     else {
+      if (!godMode) {
       image(rd, loc.x-d/2, loc.y - d, d, 1.5*d);
       //for debugging ellipse(loc.x, loc.y, d, d);
+      } else {
+       image(nc, loc.x-d/2, loc.y - d, d, 1.5*d); 
+      }
     }
   }
   //updates PVectors

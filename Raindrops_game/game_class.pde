@@ -78,7 +78,7 @@ class Game {
   //declare function to update variables
   void update() {
     //determine the rate of raindrop generation as a function of score
-    rate = int(5000*exp(-.0005*(score-rateLower)))+500;
+    rate = int(5000*exp(-.0005*(score-10*rateLower)))+500;
     //determine max as a function of score
     maxAcc = .05 + score/10000 - accLower;
     //if maxAcc is below .01, reset it to .01
@@ -125,8 +125,10 @@ class Game {
       }
       //if falls
       if (drop.loc.y > height) {
-        //subtract a life
-        lives--;
+        //subtract a life if it is not godMode
+        if (!godMode) {
+          lives--;
+        }
         //remove the drop
         rain.remove(i);
       }

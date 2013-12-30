@@ -10,6 +10,8 @@ String[] upgradeText = new String[upgrades.length];
 String[] proTips = {
   "For a harder game with higher scores, play on A-D mode!", "Ms. Gerstein is the best teacher ever!!!", "Green is not a creative color!", "Punch trees for wood", "expect the Spanish Inquisition", "bring me a shubbery", "2 + 2 = 10", "join Team 1257", "The concepts of Gracious Professionalism and Coopertition \n are fundamental parts of the FIRST philosophy.", "finish him!", "Erik's program is probably weirder than this one"
 };
+//Easter Egg
+boolean godMode;
 //game objects
 ArrayList<Raindrops> rain;
 Catcher c;
@@ -26,6 +28,10 @@ int maxSize;
 PImage rd;
 //shrub image
 PImage sr;
+//easter egg drop image
+PImage nc;
+//easter egg background
+PImage gn;
 
 void setup() {
   size(500, 500);
@@ -38,7 +44,13 @@ void setup() {
 }
 
 void draw() {
-  background(0);
+  //if godMode, make the background cn.png
+  if (!godMode) {
+    background(0);
+  } 
+  else {
+    background(gn);
+  }
   //run based on state
   if (state == startState) {
     //start menu
@@ -102,6 +114,11 @@ void keyPressed() {
     if (key == 'q') {
       l.set();
     }
+    //if g, then godMode
+    if (key == 'g') {
+      godMode = true;
+    }
+    
   }
 }
 

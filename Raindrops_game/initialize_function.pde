@@ -18,9 +18,13 @@ void constructors() {
   l = new LoseMenu();
   //constrcut shop
   sh = new Shop();
-  //raindrop/shrib images
+  //raindrop/shrub images
   rd = loadImage("raindrop.png");
   sr = loadImage("shrub.png");
+  //easter egg drops
+  nc = loadImage("nc.png");
+  //easter egg background
+  gn = loadImage("gn.png");
   /* 
    upgrade 1 = extra life 
    upgrade 2 = bigger catcher
