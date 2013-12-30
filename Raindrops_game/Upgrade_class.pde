@@ -57,6 +57,7 @@ class Upgrade {
   void update() {
     //if it has been bought fewer times than buyLimit or buyLimit is 0, and you have points for it
     if ((buyLimit == 0 || buys < buyLimit) && g.points > price) {
+      //if it has been more than 100 milliseconds since the last purchase/opening the shop
       if (millis()-boughtTime > 100) {
         //if clicked within the rectangle, buy the upgrade
         if (button(loc.x, loc.y, size.x, size.y)) {

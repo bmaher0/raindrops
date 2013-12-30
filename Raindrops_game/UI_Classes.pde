@@ -109,9 +109,11 @@ class Shop {
   //opens shop state
   void set() {
     state = shopState;
+    //assign all boughtTimes to the current time, to prevent opening the shop and accidentally buying something in the same click
     for (int i = 0; i < upgrades.length; i++) {
       upgrades[i].boughtTime = millis();
     }
+    //choose a new random tip
     g.tip = int(random(proTips.length)-.01);
   }
   void display() {
