@@ -15,7 +15,9 @@ class Upgrade {
   float inc;
   //text to display at menu
   String text;
-  
+  //variable used to control upgrade purchase speed
+  int boughtTime;
+
   Upgrade(int idt) {
     //location and size take from upgradeInfo
     loc = new PVector(upgradeInfo[idt][0].x, upgradeInfo[idt][0].y);
@@ -55,28 +57,34 @@ class Upgrade {
   void update() {
     //if it has been bought fewer times than buyLimit or buyLimit is 0, and you have points for it
     if ((buyLimit == 0 || buys < buyLimit) && g.points > price) {
-      //if clicked within the rectangle, buy the upgrade
-      if (button(loc.x, loc.y, size.x, size.y)) {
-        //if id == 0, then receive a bonus lif
-        if (id == 0) {
-          g.lives++;
-        } 
-        //if id == 1, increase catcher diameter by 20
-        if (id == 1) {
-          c.d+=20;
+      if (millis()-boughtTime > 100) {
+        //if clicked within the rectangle, buy the upgrade
+        if (button(loc.x, loc.y, size.x, size.y)) {
+          boughtTime = millis();
+          //if id == 0, then receive a bonus lif
+          if (id == 0) {
+            g.lives++;
+          } 
+          else
+            //if id == 1, increase catcher diameter by 20
+            if (id == 1) {
+              c.d+=20;
+            } 
+            else
+              //if id == 2, lower the rate of raindrop generation by 1000
+              if (id == 2) {
+                g.rateLower+=1000;
+              } 
+              else
+                //if id == 3, lower the maxAcc of the drops
+                if (id == 3) {
+                  g.accLower+=.01;
+                }
+          //increase oldPoints by price, lowering points
+          g.oldPoints+=price;
+          //multiply price by inc
+          price = int(price*inc);
         }
-        //if id == 2, lower the rate of raindrop generation by 1000
-        if (id == 2) {
-          g.rateLower+=1000;
-        }
-        //if if == 3, lower the maxAcc of the drops
-        if (id == 3) {
-          g.accLower+=.01;
-        }
-        //increase oldPoints by price, lowering points
-        g.oldPoints+=price;
-        //multiply price by inc
-        price = int(price*inc);
       }
     }
   }

@@ -109,6 +109,9 @@ class Shop {
   //opens shop state
   void set() {
     state = shopState;
+    for (int i = 0; i < upgrades.length; i++) {
+      upgrades[i].boughtTime = millis();
+    }
     g.tip = int(random(proTips.length)-.01);
   }
   void display() {
