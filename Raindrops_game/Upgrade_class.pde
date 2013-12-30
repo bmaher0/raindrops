@@ -46,7 +46,7 @@ class Upgrade {
     stroke(240, 100, 100);
     fill(120, 100, 100);
     rect(loc.x, loc.y, size.x, size.y);
-    //displays upgrade tex
+    //displays upgrade text
     textAlign(CENTER);
     textSize(12);
     fill(0, 100, 100);

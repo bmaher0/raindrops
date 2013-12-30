@@ -10,7 +10,7 @@ class Game {
   float accLower;
   boolean mouseMode;
   int tip;
-
+  
   Game() {
     //initialize score and points
     score = 0;
